@@ -1,0 +1,64 @@
+  .marker {
+    width: 30px;
+    height: 30px;
+    border-radius: 50% 50% 50% 0;
+    background: #f88909;
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 50%;
+    top: 50%;
+    margin: -20px 0 0 -20px;
+    animation-name: bounce;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+
+  &:after {
+    content: "";
+    width: 14px;
+    height: 14px;
+    margin: 8px 0 0 8px;
+    background: #ff5959;
+    position: absolute;
+    border-radius: 50%;
+  }
+}
+  
+.waves {
+  background: #d6d4d4;
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: 11px 0px 0px -12px;
+  transform: rotateX(55deg);
+  z-index: -2;
+
+  &:after {
+    content: "";
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    margin: -13px 0 0 -13px;
+    animation: waveanimation 1s ease-out infinite;
+    animation-delay: 1.1s;
+    opacity: 0;
+    box-shadow: 0 0 1px 2px #ff8b1f;
+  }
+}
+  
+  @keyframes waveanimation {
+    0% { transform: scale(0.1, 0.1);opacity: 0;}
+    50% { opacity: 1; }
+    100% {transform: scale(1.5, 1.5);opacity: 0;}
+  }
+  
+  @keyframes bounce {
+    0% { opacity: 0; transform: translateY(-1000px) rotate(-45deg); }
+    60% { opacity: 0.8; transform: translateY(30px) rotate(-45deg); }
+    80% { opacity: 0.4; transform: translateY(-10px) rotate(-45deg); } 
+    90% { opacity: 1; transform: translateY(5px) rotate(-45deg); }
+    100% { opacity: 1;transform: translateY(0px) rotate(-45deg);}
+  }
