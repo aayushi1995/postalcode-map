@@ -59,6 +59,11 @@ src
 ├── index.css
 
 ```
+
+### - Project is deployed at the below location
+
+https://aayushi1995.github.io/postalcode-map/
+
 ### - Developer :
 
 aayushi.kambriya5@gmail.com
