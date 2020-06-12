@@ -11,6 +11,7 @@ class LocationMap extends React.Component {
         super(props);
 
         this.state = {
+            id: '',
             center: {
                 lat: '',
                 lng: ''
@@ -20,8 +21,10 @@ class LocationMap extends React.Component {
             componentMount: false
         }
     }
+
     componentDidMount () {
         this.setState({
+            id: this.props.id,
             center : {
                 lat: this.props.latitude,
                 lng: this.props.longitude,
@@ -34,8 +37,10 @@ class LocationMap extends React.Component {
 
         return (
             <div className="map-container-wrapper">
+            
+                {/* Currently plotted location */}
                 <div className="currently-plotted-data">
-                    <div>Currently Plotted</div>
+                    <div>Currently Plotting #{this.state.id}</div>
                     <div>Postal Code: {this.state.postalCode}</div>
                     <div>latitude : { this.state.center.lat} , longitude : { this.state.center.lng } </div>
                 </div>
@@ -43,6 +48,7 @@ class LocationMap extends React.Component {
                 
                 <div className="fixedheightwidth">
                 {
+                    // render Google Maps only if the component is mounted properly
                     this.state.componentMount 
                     ? (
                         <GoogleMapReact 
@@ -60,8 +66,6 @@ class LocationMap extends React.Component {
                     : ''
                 }
                 </div>
-                    
-               
             </div>
         )
     }

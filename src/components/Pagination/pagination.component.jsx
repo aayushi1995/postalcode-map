@@ -31,20 +31,17 @@ class Pagination extends React.Component {
             totalPages : Math.ceil(this.state.postalData.length / this.state.recordlimit)
         });
     }
-    checkValidPageNumber = () => {
-        // validate pagenum
-        return true;
-    }
 
     getSlicedArray(pagenum) {   
 
         let { totalPages, recordlimit} = this.state;
+
         // calclating first and last index of the requested record set
 
         let firstIndex = (pagenum === 1) ? 0 : (( pagenum - 1 ) * recordlimit);
         let lastindex = (pagenum === totalPages) ? this.state.postalData.length : firstIndex + recordlimit;
         
-        // slice down the array to first 
+        // slice down the array from firstIndex to LastIndex 
         let temparray = this.state.postalData.slice(firstIndex,lastindex);
 
         this.setState({
@@ -54,12 +51,17 @@ class Pagination extends React.Component {
     }   
 
     getFirstPage = () => {
+
+        // Request for first page
         this.setState({
             currentPage : 1
         })
         this.getSlicedArray(1);
     }
+
     getPrevPage = () => {
+
+        // Request for previous Page only if the current page is not the first page
         if(this.state.currentPage !== 1) {
 
             let pagenum = this.state.currentPage;
@@ -67,11 +69,14 @@ class Pagination extends React.Component {
             this.setState({
                 currentPage : pagenum-1
             })
+
             this.getSlicedArray(pagenum-1);
         }
-       
     }
+
     getNextPage = () => {
+
+        // Request for next Page only if the current page is not the last page
         if(this.state.currentPage !== this.state.totalPages){
 
             let pagenum = this.state.currentPage;
@@ -79,36 +84,38 @@ class Pagination extends React.Component {
             this.setState({
                 currentPage : pagenum+1
             })
-           
+
             this.getSlicedArray(pagenum+1);
-        }
-      
-        // this.getSlicedArray( this.state.pagenum ++ , "next" );
+        }      
     }
     getLastPage = () => {
+
+        // Request for first page
         let totalPages = this.state.totalPages;
+
         this.setState({
             currentPage : totalPages
         })
+
         this.getSlicedArray(totalPages);
     }
 
     render() {
         return (
             <div className="paginated-table-wrapper">
-               
+
+                {/* Paginated data */}
                 <LocationList filteredPostalCodes={this.state.temparray}/>
 
                 <div className="pagination-title"> --- Pages --- </div>
+
+                {/* Buttons to navigated through pages */}
                 <div className="pagination-wrapper">
-                    
                     <button className="first" onClick={this.getFirstPage}> 1 </button>
                     <button className="prev" onClick={this.getPrevPage}> <Back/> </button>
                     <button className="next" onClick={this.getNextPage}> <Next/> </button>
                     <button className="last" onClick={this.getLastPage}> {this.state.totalPages} </button>
                 </div>
-                
-                
             </div>
         )
     }

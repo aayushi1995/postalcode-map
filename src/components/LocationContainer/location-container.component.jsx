@@ -36,28 +36,34 @@ class LocationContainer extends React.Component {
             item.postalCode.startsWith(searchedText)
         ));
 
-        const first = filteredPostalCodes[0];
+        const dataTobePlotted = filteredPostalCodes[0];
 
         return (
 
             <div className="container">
 
+                {/* Table container */}
                 <div className="location-table-wrapper">
                     <SearchField handleChange={this.handleChange} searchedText={this.state.searchedText} />
                     {
                         this.state.searchedText !== ''  
-                        ?   <LocationList filteredPostalCodes={filteredPostalCodes} highlightrow={true}/> 
-                        :   <Pagination postalData={postalData} recordlimit="5" highlightrow={true}/> 
+                        ?   <LocationList filteredPostalCodes={filteredPostalCodes}/> 
+                        :   <Pagination postalData={postalData} recordlimit="5"/> 
                     }
                        
                        
                 </div>
-                
+
+                {/* Map container */}
                 <div className="location-map-wrapper">
                 {
-                    first === '' || first === undefined 
-                    ? <div style={{padding:'20px'}}>Location not found</div>
-                    : <LocationMap {...first} key={first.postalCode}/>
+                    /* if data to be plotted is empty then display Location not found */
+
+                    dataTobePlotted === '' || dataTobePlotted === undefined 
+
+                    ? <div style={{padding:'20px'}}> Location not found</div>
+
+                    : <LocationMap {...dataTobePlotted} key={dataTobePlotted.id}/>
                 }
                 </div>
             </div>

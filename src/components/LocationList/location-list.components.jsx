@@ -4,9 +4,11 @@ import LocationTableRow from '../LocationTableRow/location-table-row.component';
 
 import './location-list.styles.scss';
 
-const LocationList = ({filteredPostalCodes, highlightrow}) => (
+const LocationList = ({filteredPostalCodes}) => (
     <table className="search-records-table">
         <tbody>
+
+            {/* Table Header */}
             <tr className="table-row-wrapper">
                 <th>#</th>
                 <th>POSTALCODE</th>
@@ -14,8 +16,10 @@ const LocationList = ({filteredPostalCodes, highlightrow}) => (
                 <th>LONGITUDE</th>
             </tr>
             {
+                /* Table rows */
+
                 filteredPostalCodes.map( ({id, ...otherProps}) => (
-                    <LocationTableRow key={id} id={id} { ...otherProps} highlightrow={id === 0 ? highlightrow : ''}/>
+                    <LocationTableRow key={id} id={id} { ...otherProps}/>
                 ))
             }
         </tbody>
