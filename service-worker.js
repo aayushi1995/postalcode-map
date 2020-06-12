@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/postalcode-map/precache-manifest.03d91a104b851346978a013034af3f49.js"
+  "/postalcode-map/precache-manifest.35f7432ecaf38af2dd83abc0d50e93c5.js"
 );
 
 self.addEventListener('message', (event) => {
