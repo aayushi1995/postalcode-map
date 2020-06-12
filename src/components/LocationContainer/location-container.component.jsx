@@ -22,12 +22,15 @@ class LocationContainer extends React.Component {
     }
     
     handleChange = event => {
+        // remove spaces from the searched text 
         this.setState({
             searchedText : event.target.value.trim()
         })
     }
 
     handlePaginatedData = (paginatedData) => {
+
+        // store the first record of the paginated data in the state
         this.setState({
             paginatedData: paginatedData[0]
         })
@@ -42,10 +45,9 @@ class LocationContainer extends React.Component {
         const filteredPostalCodes = postalData.filter((item,index) => (
             item.postalCode.startsWith(searchedText)
         ));
-
+        
+        // if user didnt search then plot the paginatedData or else plot the first record of the Search Result
         const dataTobePlotted = searchedText !== '' ? filteredPostalCodes[0] : paginatedData ;
-
-        console.log(dataTobePlotted);
 
         return (
 
