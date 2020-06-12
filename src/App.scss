@@ -1,3 +1,5 @@
+$mobileView: "(max-width: 600px)";
+
 body {
 	background: linear-gradient(-45deg, #dbf380, #5affd1, #9bdef7, #88ffe3);
 	background-size: 400% 400%;
@@ -14,10 +16,14 @@ body {
     text-align: center;
     color:black;
 
-    h2{
+    h2 {
         font-size:30px;
         margin:10px 0px;
         font-weight: 800;
+
+        @media #{$mobileView} {
+            font-size:20px;
+        }
     }
    
     

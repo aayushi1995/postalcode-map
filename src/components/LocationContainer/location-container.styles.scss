@@ -1,5 +1,5 @@
-$mobileView: "(max-width: 600px)";
-$desktopView: "(min-width: 601px)";
+$mobileView: "(max-width: 800px)";
+$desktopView: "(min-width: 801px)";
 
 .container {
     display: flex;
@@ -9,24 +9,13 @@ $desktopView: "(min-width: 601px)";
         width: 100%;
         flex-direction: column-reverse;
     }
-
-    > div {
-       
-        box-shadow: 2px 5px 10px 3px #5c5c5c;
-        padding: 20px;
-        margin: 10px; 
-        background-color: white;
-
-        @media #{$mobileView} {
-            width: 90vw;
-            margin: auto;
-            padding: 10px;
-            flex-direction: column-reverse;
-        }
-    }
     .location-table-wrapper {
         width: 30vw;
         height:50vw;
+
+        @media #{$mobileView} {
+            height:auto;
+        }
     }
     .location-map-wrapper{
         width:70vw;
@@ -34,6 +23,21 @@ $desktopView: "(min-width: 601px)";
         padding: 0px;
         color: grey;
     }
+
+    > div {
+        box-shadow: 2px 5px 10px 3px #5c5c5c;
+        padding: 20px;
+        margin: 10px; 
+        background-color: white;
+
+        @media #{$mobileView} {
+            width: 90vw !important;
+            margin: 20px auto;
+            padding: 10px;
+            flex-direction: column-reverse;
+        }
+    }
+   
 
    
 }
