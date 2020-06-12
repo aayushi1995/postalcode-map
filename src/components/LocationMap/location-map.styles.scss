@@ -1,6 +1,20 @@
+$mobileView: "(max-width: 600px)";
+$desktopView: "(min-width: 1026px)";
+$tableview: "(min-width:601px) and (max-width:1025px)";
+
+
 .fixedheightwidth {
     min-width: 500px;
     height: 500px;
     margin: auto;
     color: lightgrey;
+
+    @media #{$mobileView} {
+        min-width: 250px;
+        height: 400px;
+    }
+    @media #{$tableview}{
+        min-width: 300px;
+    } 
+    
 }

@@ -1,16 +1,33 @@
+$mobileView: "(max-width: 600px)";
+$desktopView: "(min-width: 601px)";
+
+
+
 .container {
     display: flex;
     justify-content: center;
 
-    > div{
+    @media #{$mobileView} {
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+
+    > div {
         width: 40vw;
         box-shadow: 2px 5px 10px 3px lightgrey;
         padding: 20px;
         margin: 10px; 
+
+        @media #{$mobileView} {
+            width: 90vw;
+            margin: auto;
+            padding: 10px;
+            flex-direction: column-reverse;
+        }
     }
+
     .location-map-wrapper{
         height: fit-content;
         color: grey;
     }
-
 }

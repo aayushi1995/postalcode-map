@@ -5,5 +5,10 @@
         border: 1px solid lightgrey;
         padding:5px 10px;
         width: 100%;
+
+        &:focus{
+            outline: none;
+        }
     }
+
 }

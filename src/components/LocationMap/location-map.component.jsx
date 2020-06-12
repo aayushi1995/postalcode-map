@@ -42,15 +42,15 @@ class LocationMap extends React.Component {
                     this.state.componentMount 
                     ? (
                         <GoogleMapReact 
-                        bootstrapURLKeys={{ key: 'AIzaSyBolpG9OgyqG5AIA5weqb8YqMmcTUpGxZM' }}
-                        defaultCenter={this.state.center}
-                        defaultZoom={this.state.zoom}
-                        distanceToMouse={()=>{}}
+                            bootstrapURLKeys={{ key: 'AIzaSyBolpG9OgyqG5AIA5weqb8YqMmcTUpGxZM' }}
+                            defaultCenter={this.state.center}
+                            defaultZoom={this.state.zoom}
+                            distanceToMouse={()=>{}}
                         >
-                        <Marker
-                            lat={this.state.center.lat}
-                            lng={this.state.center.lng}
-                        />
+                            <Marker
+                                lat={this.state.center.lat}
+                                lng={this.state.center.lng}
+                            />
                         </GoogleMapReact>
                     )
                     : ''
