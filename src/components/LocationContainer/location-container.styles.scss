@@ -11,7 +11,7 @@ $desktopView: "(min-width: 801px)";
     }
     .location-table-wrapper {
         width: 30vw;
-        height:50vw;
+        height:auto;
 
         @media #{$mobileView} {
             height:auto;

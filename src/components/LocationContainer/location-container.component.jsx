@@ -16,27 +16,36 @@ class LocationContainer extends React.Component {
        
         this.state = {
             postalData : [...LocationData],
-            searchedText: ''
+            searchedText: '',
+            paginatedData: {}
         }
     }
-
+    
     handleChange = event => {
         this.setState({
             searchedText : event.target.value.trim()
         })
     }
 
+    handlePaginatedData = (paginatedData) => {
+        this.setState({
+            paginatedData: paginatedData[0]
+        })
+    }
+
     render () {
 
         // duplicate data from the state in order to keep the raw data clean and untouched
-        const { postalData, searchedText } = this.state;
+        const { postalData, searchedText, paginatedData } = this.state;
 
         // filter out all postal codes who have the searched keyword
         const filteredPostalCodes = postalData.filter((item,index) => (
             item.postalCode.startsWith(searchedText)
         ));
 
-        const dataTobePlotted = filteredPostalCodes[0];
+        const dataTobePlotted = searchedText !== '' ? filteredPostalCodes[0] : paginatedData ;
+
+        console.log(dataTobePlotted);
 
         return (
 
@@ -48,7 +57,7 @@ class LocationContainer extends React.Component {
                     {
                         this.state.searchedText !== ''  
                         ?   <LocationList filteredPostalCodes={filteredPostalCodes}/> 
-                        :   <Pagination postalData={postalData} recordlimit="5"/> 
+                        :   <Pagination postalData={postalData} recordlimit="5" handlePaginatedData={this.handlePaginatedData}/> 
                     }
                        
                        
@@ -63,7 +72,7 @@ class LocationContainer extends React.Component {
 
                     ? <div style={{padding:'20px'}}> Location not found</div>
 
-                    : <LocationMap {...dataTobePlotted} key={dataTobePlotted.id}/>
+                    : <LocationMap {...dataTobePlotted} key={dataTobePlotted.id} />
                 }
                 </div>
             </div>

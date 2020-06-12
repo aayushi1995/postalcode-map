@@ -19,20 +19,20 @@ class Pagination extends React.Component {
             recordlimit : parseInt(this.props.recordlimit)
         }
     }
+
     componentDidMount() {
         this.calculatePages();
         this.getSlicedArray(this.state.currentPage);
     }
 
     calculatePages = () => {
-
         // calculate total pages
         this.setState({
             totalPages : Math.ceil(this.state.postalData.length / this.state.recordlimit)
         });
     }
 
-    getSlicedArray(pagenum) {   
+    getSlicedArray = (pagenum) => {   
 
         let { totalPages, recordlimit} = this.state;
 
@@ -44,9 +44,11 @@ class Pagination extends React.Component {
         // slice down the array from firstIndex to LastIndex 
         let temparray = this.state.postalData.slice(firstIndex,lastindex);
 
-        this.setState({
-            temparray : [...temparray]
-        })  
+        this.setState({ temparray : [...temparray]},
+            () => {
+                this.props.handlePaginatedData(temparray)
+            }
+        )  
 
     }   
 
