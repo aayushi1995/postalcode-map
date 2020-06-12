@@ -2,3 +2,12 @@ table {
     width:100%;
 }
 
+.search-records-table {
+
+    tr:nth-child(2) {
+        border: 4px solid #5dfbb2;
+        border-radius: 10px;
+        margin: auto;
+        text-decoration: none;
+    }
+}

@@ -6,7 +6,11 @@ import './App.scss';
 function App() {
   return (
     <div> 
-      <h2 className="maintitle">LogiNext Coding Challenge</h2>
+      <div className="maintitle">
+        <h2 > Search your Postal Code </h2>
+        
+    
+      </div>
       <LocationContainer/>
     </div>
   );

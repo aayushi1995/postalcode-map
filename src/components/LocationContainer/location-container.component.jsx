@@ -46,8 +46,8 @@ class LocationContainer extends React.Component {
                     <SearchField handleChange={this.handleChange} searchedText={this.state.searchedText} />
                     {
                         this.state.searchedText !== ''  
-                        ?   <LocationList filteredPostalCodes={filteredPostalCodes}/> 
-                        :   <Pagination postalData={postalData} recordlimit="5"/> 
+                        ?   <LocationList filteredPostalCodes={filteredPostalCodes} highlightrow={true}/> 
+                        :   <Pagination postalData={postalData} recordlimit="5" highlightrow={true}/> 
                     }
                        
                        
@@ -56,7 +56,7 @@ class LocationContainer extends React.Component {
                 <div className="location-map-wrapper">
                 {
                     first === '' || first === undefined 
-                    ? " No Location Found"
+                    ? <div style={{padding:'20px'}}>Location not found</div>
                     : <LocationMap {...first} key={first.postalCode}/>
                 }
                 </div>

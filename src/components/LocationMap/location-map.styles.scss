@@ -2,19 +2,34 @@ $mobileView: "(max-width: 600px)";
 $desktopView: "(min-width: 1026px)";
 $tableview: "(min-width:601px) and (max-width:1025px)";
 
+.map-container-wrapper {
+    position: relative;
 
-.fixedheightwidth {
-    min-width: 500px;
-    height: 500px;
-    margin: auto;
-    color: lightgrey;
+    .currently-plotted-data{
 
-    @media #{$mobileView} {
-        min-width: 250px;
-        height: 400px;
+        background-color: #0202027c;
+        color:white;
+        font-weight: 800;
+        font-size:12px;
+        position: absolute;
+        top:10px;
+        padding:10px;
+        left:10px;
+        z-index: 1;
     }
-    @media #{$tableview}{
-        min-width: 300px;
-    } 
-    
+
+    .fixedheightwidth {
+        min-width: 500px;
+        height:50vw;;
+        margin: auto;
+        color: lightgrey;
+
+        @media #{$mobileView} {
+            min-width: 250px;
+            height: 400px;
+        }
+        @media #{$tableview}{
+            min-width: 300px;
+        }
+    }
 }

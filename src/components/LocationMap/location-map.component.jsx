@@ -20,7 +20,7 @@ class LocationMap extends React.Component {
             componentMount: false
         }
     }
-    componentDidMount(){
+    componentDidMount () {
         this.setState({
             center : {
                 lat: this.props.latitude,
@@ -33,9 +33,13 @@ class LocationMap extends React.Component {
     render() {
 
         return (
-            <div>
-                <h2>{this.state.postalCode}</h2>
-                <p>latitude : { this.state.center.lat} , longitude : { this.state.center.lng } </p>
+            <div className="map-container-wrapper">
+                <div className="currently-plotted-data">
+                    <div>Currently Plotted</div>
+                    <div>Postal Code: {this.state.postalCode}</div>
+                    <div>latitude : { this.state.center.lat} , longitude : { this.state.center.lng } </div>
+                </div>
+                   
                 
                 <div className="fixedheightwidth">
                 {
