@@ -50,9 +50,9 @@ src
 │       ├── Pagination
 |       |    |── pagination.component.js
 |       |    └── pagination.style.scss
-│       ├── SearchField
-|       |    |── search-field.component.js
-|       |    └── search-field.style.scss
+│       └── SearchField
+|            |── search-field.component.js
+|            └── search-field.style.scss
 ├── App.js
 ├── App.scss
 ├── index.js
